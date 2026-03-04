@@ -4,346 +4,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW Ultimate Catalog 2026</title>
+    <title>Cats-Hub | Imtihon Loyihasi</title>
     <style>
-         :root {
-            --bmw-blue: #0066b1;
-            --bmw-m-blue: #0033ad;
-            --bmw-red: #e7222e;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+        /* 1. ASOSIY FON VA RAMKA */
         
         body {
-            background: #050505;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #dfe6e9;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
         }
-        /* Murakkab Orqa Fon (BG Frames) */
+        /* BG FRAME - Asosiy oq blok */
         
-        .bg-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .container-frame {
+            background: white;
+            max-width: 1000px;
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+            border: 10px solid #74b9ff;
+            /* Moviy ramka */
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
-        
-        .blob {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(45deg, var(--bmw-blue), var(--bmw-red));
-            filter: blur(180px);
-            border-radius: 50%;
-            opacity: 0.2;
-            animation: move 20s infinite alternate;
-        }
-        
-        @keyframes move {
-            from {
-                transform: translate(-10%, -10%);
-            }
-            to {
-                transform: translate(20%, 20%);
-            }
-        }
-        /* Navigatsiya */
         
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-        
-        .m-stripes {
-            display: inline-block;
-            width: 40px;
-            height: 10px;
-            background: linear-gradient(90deg, #0033ad 33%, #0066b1 33% 66%, #e7222e 66%);
-            margin-right: 10px;
-        }
-        /* Hero section */
-        
-        .hero {
-            padding: 100px 8% 50px;
             text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px dashed #74b9ff;
+            padding-bottom: 20px;
         }
         
-        .hero h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Moshinalar Grid */
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 30px;
-            padding: 40px 8%;
-        }
-        /* Moshina Kartochkasi (Glass Frame) */
-        
-        .car-card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        
-        .car-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: var(--bmw-blue);
-            transform: scale(1.02);
-        }
-        
-        .car-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .car-name {
-            font-size: 22px;
-            font-weight: 700;
-        }
-        
-        .badge {
-            font-size: 10px;
-            padding: 4px 10px;
-            background: var(--bmw-blue);
-            border-radius: 20px;
+        h1 {
+            color: #2d3436;
             text-transform: uppercase;
         }
-        /* Ko'p ma'lumotlar bo'limi */
+        /* 2. MUSHUKLAR TARMOG'I (GRID) */
         
-        .info-table {
-            width: 100%;
-            margin: 20px 0;
-            font-size: 14px;
-            border-collapse: collapse;
+        .cats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
+        /* 3. MUSHUK KARTASI */
         
-        .info-table tr {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .info-table td {
-            padding: 8px 0;
-        }
-        
-        .label {
-            color: #888;
-        }
-        
-        .value {
-            text-align: right;
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .price-box {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .price {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--bmw-blue);
-        }
-        
-        .btn-details {
-            padding: 10px 20px;
-            background: transparent;
-            border: 1px solid #fff;
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
+        .cat-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
             transition: 0.3s;
         }
         
-        .btn-details:hover {
-            background: #fff;
-            color: #000;
+        .cat-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Rasm stili */
+        
+        .cat-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* Rasmni chiroyli kesib joylashtiradi */
+            background-color: #eee;
         }
         
-        footer {
-            text-align: center;
-            padding: 60px;
-            color: #444;
+        .cat-content {
+            padding: 20px;
+        }
+        
+        .cat-content h3 {
+            margin: 0 0 10px 0;
+            color: #0984e3;
+        }
+        
+        .cat-content p {
             font-size: 14px;
+            color: #636e72;
+            line-height: 1.5;
+        }
+        
+        .info-tag {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #01579b;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-top: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="bg-elements">
-        <div class="blob"></div>
-        <div class="blob" style="right: -100px; bottom: -100px; animation-delay: -5s;"></div>
+    <div class="container-frame">
+        <header>
+            <h1>🐱 Cats-Hub: Mushuklar Ensiklopediyasi</h1>
+            <p>Eng mashhur mushuk zotlari haqida batafsil ma'lumot</p>
+        </header>
+
+        <div class="cats-grid" id="mainGrid">
+        </div>
     </div>
-
-    <header>
-        <div class="logo"><span class="m-stripes"></span>BMW DRIVE</div>
-        <nav>Shedevrlar dunyosiga xush kelibsiz!</nav>
-    </header>
-
-    <section class="hero">
-        <h1>SHEER DRIVING PLEASURE</h1>
-        <p>BMW-ning barcha asosiy modellari, to'liq texnik tavsiflari va 2026-yilgi narxlari</p>
-    </section>
-
-    <div class="grid" id="mainGrid">
-    </div>
-
-    <footer>
-        <p>Qarshi, O'zbekiston - BMW Fan Club uchun maxsus</p>
-    </footer>
 
     <script>
-        const bmwData = [{
-            model: "BMW M5 (G90)",
-            year: "2026",
-            engine: "4.4L V8 + Electric Motor",
-            power: "717 HP / 1000 Nm",
-            transmission: "8-speed M Steptronic",
-            drive: "M xDrive (AWD/RWD)",
-            zeroToHundred: "3.5 sek",
-            topSpeed: "305 km/h",
-            price: "$123,300",
-            type: "PHEV Sedan"
+        // MUSHUKLAR MA'LUMOTLARI VA RASMLARI
+        const cats = [{
+            name: "Siam Mushugi",
+            desc: "Siam mushuklari juda aqlli va muloqotga kirishuvchan bo'ladi. Ular o'z egalariga juda qattiq bog'lanib qolishadi.",
+            origin: "Tailand",
+            img: "https://images.unsplash.com/photo-1557124258-2c9736f3330a?auto=format&fit=crop&w=400"
         }, {
-            model: "BMW i7 M70",
-            year: "2026",
-            engine: "Dual Electric Motors",
-            power: "650 HP / 1100 Nm",
-            transmission: "Single-speed",
-            drive: "xDrive (AWD)",
-            zeroToHundred: "3.7 sek",
-            topSpeed: "250 km/h",
-            price: "$168,500",
-            type: "Electric Luxury"
+            name: "Fors Mushugi",
+            desc: "Uzun junli va xotirjam tabiatli mushuk. Ular shovqinni yoqtirishmaydi va ko'proq uxlashni afzal ko'rishadi.",
+            origin: "Eron",
+            img: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=400"
         }, {
-            model: "BMW M4 Competition",
-            year: "2026",
-            engine: "3.0L Straight-6 Twin-Turbo",
-            power: "523 HP / 650 Nm",
-            transmission: "8-speed M Steptronic",
-            drive: "M xDrive",
-            zeroToHundred: "3.4 sek",
-            topSpeed: "290 km/h",
-            price: "$91,500",
-            type: "Coupe"
+            name: "Bengal Mushugi",
+            desc: "Tashqi ko'rinishi leopardga o'xshash, lekin tabiati juda mehribon. Ular suvda o'ynashni yaxshi ko'radilar.",
+            origin: "AQSH",
+            img: "https://images.unsplash.com/photo-1513245538863-17bd35679e5a?auto=format&fit=crop&w=400"
         }, {
-            model: "BMW X7 M60i",
-            year: "2026",
-            engine: "4.4L V8 Mild-Hybrid",
-            power: "523 HP / 750 Nm",
-            transmission: "8-speed Sport Automatic",
-            drive: "xDrive (AWD)",
-            zeroToHundred: "4.7 sek",
-            topSpeed: "250 km/h",
-            price: "$110,900",
-            type: "Luxury SUV"
-        }, {
-            model: "BMW XM Label Red",
-            year: "2026",
-            engine: "4.4L V8 Plug-in Hybrid",
-            power: "738 HP / 1000 Nm",
-            transmission: "8-speed M Steptronic",
-            drive: "M xDrive",
-            zeroToHundred: "3.8 sek",
-            topSpeed: "290 km/h",
-            price: "$185,900",
-            type: "M Hybrid SUV"
-        }, {
-            model: "BMW M2 (G87)",
-            year: "2026",
-            engine: "3.0L Straight-6 Turbo",
-            power: "473 HP / 600 Nm",
-            transmission: "6-speed Manual / 8-speed Auto",
-            drive: "RWD (Orqa tortish)",
-            zeroToHundred: "4.0 sek",
-            topSpeed: "285 km/h",
-            price: "$68,500",
-            type: "Compact Sport"
+            name: "Britaniya Mushugi",
+            desc: "Katta va yumshoq tanali, kulrang junli mushuklar. Ular juda mustaqil va yolg'iz qolishdan qo'rqmaydilar.",
+            origin: "Angliya",
+            img: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=400"
         }];
 
-        function initSite() {
-            const grid = document.getElementById('mainGrid');
+        const grid = document.getElementById('mainGrid');
 
-            bmwData.forEach(car => {
-                const card = document.createElement('div');
-                card.className = 'car-card';
-                card.innerHTML = `
-                    <div class="car-header">
-                        <div class="car-name">${car.model}</div>
-                        <span class="badge">${car.type}</span>
+        // MA'LUMOTLARNI CHIQARISH
+        cats.forEach(cat => {
+            grid.innerHTML += `
+                <div class="cat-card">
+                    <img src="${cat.img}" alt="${cat.name}" class="cat-image">
+                    <div class="cat-content">
+                        <h3>${cat.name}</h3>
+                        <p>${cat.desc}</p>
+                        <span class="info-tag">Vatani: ${cat.origin}</span>
                     </div>
-                    
-                    <table class="info-table">
-                        <tr><td class="label">Dvigatel</td><td class="value">${car.engine}</td></tr>
-                        <tr><td class="label">Quvvat</td><td class="value">${car.power}</td></tr>
-                        <tr><td class="label">Uzatma qutisi</td><td class="value">${car.transmission}</td></tr>
-                        <tr><td class="label">Privod</td><td class="value">${car.drive}</td></tr>
-                        <tr><td class="label">Tezlanish (0-100)</td><td class="value">${car.zeroToHundred}</td></tr>
-                        <tr><td class="label">Maks. tezlik</td><td class="value">${car.topSpeed}</td></tr>
-                        <tr><td class="label">Yili</td><td class="value">${car.year}</td></tr>
-                    </table>
-
-                    <div class="price-box">
-                        <div class="price">${car.price}</div>
-                        <button class="btn-details" onclick="alert('${car.model} haqida so\\'rov yuborildi!')">Buyurtma</button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        window.onload = initSite;
-
-        // Mouse parallax effekt
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            const blobs = document.querySelectorAll('.blob');
-            blobs[0].style.transform = `translate(${x * 60}px, ${y * 60}px)`;
-            blobs[1].style.transform = `translate(-${x * 60}px, -${y * 60}px)`;
+                </div>
+            `;
         });
     </script>
 </body>
